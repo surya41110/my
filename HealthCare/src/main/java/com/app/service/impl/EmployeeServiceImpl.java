@@ -32,13 +32,14 @@ public class EmployeeServiceImpl implements IEmployeeService{
 	@Override
 	@Transactional
 	public void deleteEmployee(Integer empId) {
+		dao.deleteEmployee(empId);
 		
 	}
 
 	@Override
 	@Transactional(readOnly=true)
 	public Employee getOneEmployee(Integer empId) {
-		return null;
+		return dao.getOneEmployee(empId);
 	}
 
 	@Override

@@ -35,14 +35,14 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 
 	@Override
 	public void deleteEmployee(Integer empId) {
-		// TODO Auto-generated method stub
-
+		Employee emp=new Employee();
+		emp.setEmpId(empId);
+		ht.delete(emp);
 	}
 
 	@Override
 	public Employee getOneEmployee(Integer empId) {
-		// TODO Auto-generated method stub
-		return null;
+		return ht.get(Employee.class, empId);
 	}
 	
 	//get All Employee records
