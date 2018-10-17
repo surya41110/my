@@ -5,13 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>All Employees</title>
+<title>All Users</title>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style type="text/css">
-
-
-
-
 table {
 	border: 1px solid black;
 	border-collapse: collapse;
@@ -65,48 +61,32 @@ a:link {
 a:hover {
 	text-decoration: underline;
 	color: red;
-
+}
 </style>
-
 </head>
 <body>
 	<a href="/HealthCare"><h1 style="color: red; text-align: center;">All
-			Employees</h1></a>
+			Users</h1></a>
 	<table align="center">
 		<tr>
-			<th>Id</th>
-			<th>Name</th>
-			<th>Gender</th>
-			<th>Address</th>
-			<th>Country</th>
-			<th>Languages</th>
-			<th colspan="2">Options</th>
+			<td>ID</td>
+			<td>User Name</td>
+			<td>Email</td>
+			<td>Contact</td>
+			<td>Password</td>
+			<td>Address</td>
+			<td colspan="2">Options</td>
 		</tr>
-		<c:forEach items="${listEmps}" var="emp">
 			<tr>
-				<td>${emp.empId}</td>
-				<td>${emp.empName}</td>
-				<td>${emp.empGen}</td>
-				<td>${emp.empAddr}</td>
-				<td>${emp.empCntry}</td>
-				<td align="center">
-					<table id="inTable">
-						<tr>
-							<c:forEach items="${emp.empLangs}" var="langs">
-								<td><b><i>${langs}</i></b></td>
-							</c:forEach>
-						</tr>
-					</table>
-				</td>
-				<td><a href="delete?id=${emp.empId}">Delete</a></td>
-				<td><a href="edit?id=${emp.empId}">Edit</a></td>
+				<td>${listUsers.userId}</td>
+				<td>${listUsers.userName}</td>
+				<td>${listUsers.userEmail}</td>
+				<td>${listUsers.userContact}</td>
+				<td>${listUsers.userPwd}</td>
+				<td>${listUsers.userAddr}</td>
+				<td><a href="edit?id=${listUsers.userId}">Edit</a></td>
+				<td><a href="delete?id=${listUsers.userId}">Delete</a></td>
 			</tr>
-		</c:forEach>
 	</table>
-	<c:choose>
-		<c:when test="${message!=null}">
-			<span id="msg" class="w3-tag">${message}</span>
-		</c:when>
-	</c:choose>
 </body>
 </html>

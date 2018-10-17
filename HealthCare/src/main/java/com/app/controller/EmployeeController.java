@@ -65,4 +65,24 @@ public class EmployeeController {
 		map.addAttribute("emp", emp);
 		return "OneEmployee";
 	}
+	
+	@RequestMapping(value="/edit",method=RequestMethod.GET)
+	public String showEmployeeEdit(@RequestParam("id") Integer empId,ModelMap map) {
+		Employee emp=service.getOneEmployee(empId);
+		map.addAttribute("employee", emp);
+		return "EditEmployee";
+	}
+	
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String updateEmployeeData(@ModelAttribute Employee employee, ModelMap map) {
+		List<Employee> listEmps = null;
+		String msg =null;
+		service.updateEmployee(employee);
+		msg = "Employee Record Updated with Id  " + employee.getEmpId() + "....";
+		map.addAttribute("message", msg);
+		listEmps=service.getAllEmployees();
+		map.addAttribute("listEmps", listEmps);
+		return "AllEmployees";
+	}
+	
 }

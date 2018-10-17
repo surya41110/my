@@ -29,8 +29,7 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 
 	@Override
 	public void updateEmployee(Employee employee) {
-		// TODO Auto-generated method stub
-
+		ht.update(employee);
 	}
 
 	@Override

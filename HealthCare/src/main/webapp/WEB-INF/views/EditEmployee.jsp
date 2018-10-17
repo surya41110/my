@@ -7,7 +7,6 @@
 <meta charset="ISO-8859-1">
 <title>register</title>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" >
 <style type="text/css">
 div {
 	width: 450px;
@@ -37,6 +36,11 @@ select {
 	background-color: #f1f1f1;
 }
 
+#readonly {
+	background-color: #A9A9A9;
+	color: red;
+}
+
 input[type=submit] {
 	background-color: #008080;
 	border: none;
@@ -57,14 +61,19 @@ input[type=text] {
 	margin: 4px 2px;
 	cursor: pointer;
 }
+
+h4 {
+	text-align: center;
+}
 </style>
 </head>
 <body>
 	<div>
-	<a href="/HealthCare"><h4 style="text-align: center;">Register Employee</h4></a>
-		<form:form action="insert" method="POST" modelAttribute="employee">
+		<a href="/HealthCare"><h4>Register Employee</h4></a>
+		<form:form action="update" method="POST" modelAttribute="employee">
 			<pre>
 				<b>
+ID         : <form:input id="readonly" path="empId" readonly="true" />
 Name       : <form:input path="empName" />
 
 Gender     : <form:radiobutton path="empGen" value="M" />Male  <form:radiobutton
@@ -83,15 +92,16 @@ Languages  : English <form:checkbox path="empLangs" value="ENG" />  Telugu <form
 	     Hindi   <form:checkbox path="empLangs" value="HIN" />  Tamil  <form:checkbox
 						path="empLangs" value="TAM" />
 						
-			<input type="submit" value="Register">
+			<input type="submit" value="Update">
 		
+			
 			</pre>
 			</b>
 		</form:form>
-		<%-- ${message} --%>
+		<%--  ${message}
 		<p>
 			<a href="get?id=${empId}"><span class="w3-tag w3-teal">${message}</span></a>
-		</p>
+		</p> --%>
 	</div>
 </body>
 </html>

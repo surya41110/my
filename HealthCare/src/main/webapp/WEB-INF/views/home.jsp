@@ -37,6 +37,16 @@ div {
 							<a href="employee/register">Register Employee</a>
 						</h3></td>
 				</tr>
+				<tr>
+					<td text-align="center"><h3>
+							<a href="user/register">Register User</a>
+						</h3></td>
+				</tr>
+				<tr text-align="center">
+					<td text-align="center"><h3>
+							<a href="user/all">All Users</a>
+						</h3></td>
+				</tr>
 			</tbody>
 		</table>
 	</div>
