@@ -93,5 +93,10 @@ a:hover {
 	<p>
 		<a href="get?id=${empId}"><span class="w3-tag w3-teal">${message}</span></a>
 	</p>
+	
+	<br>
+	<center><a href="pdf">Import As Pdf</a></center>
+		<br>
+	<center><a href="excel">Import As Excel</a></center>
 </body>
 </html>

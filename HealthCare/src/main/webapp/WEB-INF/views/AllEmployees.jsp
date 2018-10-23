@@ -108,5 +108,9 @@ a:hover {
 			<span id="msg" class="w3-tag">${message}</span>
 		</c:when>
 	</c:choose>
+	<br>
+	<center><a href="pdf">Import As Pdf</a></center>
+		<br>
+	<center><a href="excel">Import As Excel</a></center>
 </body>
 </html>

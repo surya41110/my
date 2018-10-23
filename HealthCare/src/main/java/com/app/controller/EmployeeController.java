@@ -9,9 +9,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.app.model.Employee;
 import com.app.service.IEmployeeService;
+import com.app.view.EmployeeExcelView;
+import com.app.view.EmployeePdfView;
 
 @Controller
 @RequestMapping("/employee")
@@ -85,4 +88,24 @@ public class EmployeeController {
 		return "AllEmployees";
 	}
 	
+	
+	@RequestMapping("/excel")
+	public ModelAndView showExcel(){
+		ModelAndView mav=null;
+		mav =new ModelAndView();
+		List<Employee> emps=service.getAllEmployees();
+		mav.setView(new EmployeeExcelView());
+		mav.addObject("emps", emps);
+		return mav;
+	}
+	
+	@RequestMapping("/pdf")
+	public ModelAndView showPdf(){
+		ModelAndView mav=null;
+		mav =new ModelAndView();
+		List<Employee> emps=service.getAllEmployees();
+		mav.setView(new EmployeePdfView());
+		mav.addObject("emps", emps);
+		return mav;
+	}
 }

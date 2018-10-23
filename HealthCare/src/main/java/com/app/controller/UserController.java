@@ -9,9 +9,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.app.model.Employee;
 import com.app.model.User;
 import com.app.service.IUserService;
+import com.app.view.EmployeeExcelView;
+import com.app.view.EmployeePdfView;
+import com.app.view.UserExcelView;
+import com.app.view.UserPdfView;
 
 @Controller
 @RequestMapping("/user")
@@ -85,5 +91,25 @@ public class UserController {
 		map.addAttribute("listUsers", listUsers);
 		return "OneUser";
 	}
+	@RequestMapping("/excel")
+	public ModelAndView showExcel(){
+		ModelAndView mav=null;
+		mav =new ModelAndView();
+		List<User> user=service.getAllUsers();
+		mav.setView(new UserExcelView());
+		mav.addObject("user", user);
+		return mav;
+	}
+	
+	@RequestMapping("/pdf")
+	public ModelAndView showPdf(){
+		ModelAndView mav=null;
+		mav =new ModelAndView();
+		List<User> user=service.getAllUsers();
+		mav.setView(new UserPdfView());
+		mav.addObject("user", user);
+		return mav;
+	}
+	
 
 }
