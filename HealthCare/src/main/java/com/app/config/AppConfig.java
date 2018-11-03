@@ -17,8 +17,10 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import com.app.model.Developer;
 import com.app.model.Document;
 import com.app.model.Employee;
+import com.app.model.Project;
 import com.app.model.User;
 
 
@@ -65,7 +67,7 @@ public class AppConfig {
 	public LocalSessionFactoryBean sfObj() {
 		LocalSessionFactoryBean sf=new LocalSessionFactoryBean();
 		sf.setDataSource(dsObj());
-		sf.setAnnotatedClasses(Employee.class,User.class,Document.class);
+		sf.setAnnotatedClasses(Employee.class,User.class,Document.class,Project.class,Developer.class);
 		sf.setHibernateProperties(props());
 		return sf;
 	}
